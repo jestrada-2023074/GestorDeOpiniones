@@ -16,10 +16,11 @@
   "version": "1.0.0",
   "description": "GestorDeOpiniones(FacebookSinPresupuesto)",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JE (Jose Estrada)",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
+

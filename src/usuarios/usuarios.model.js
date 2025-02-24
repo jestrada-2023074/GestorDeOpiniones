@@ -1,12 +1,14 @@
-//Modelo de usuarios
+
+//Modelo de usauario 
+
 import { Schema, model} from 'mongoose'
 
-const userSchema = Schema(
+const userSchema = new  Schema(
     {
-        name:{
+        name: {
             type: String,
-            requerid: [true, 'Name is required'],
-            MaxLength: [30, `Can't be overcome 30 characters`]
+            required: [true, 'Name is required'],
+            maxLength: [25, `Can't be overcome 25 characters`]
         },
         surname: {
             type: String,
@@ -29,24 +31,23 @@ const userSchema = Schema(
             type: String,
             required: [true, 'Password is required'],
             minLength: [8, 'Password must be 8 characters'],
-            maxLength: [100, `Can't be overcome 100 characters`],
+            maxLength: [100, `Password can't exceed 100 characters`],
             
         },
         phone: {
             type: String,
             required: [true, 'Phone is required'],
-            minLength: [8, `Can't be overcome 16 characters`],
+            minLength: [8, `Can't be overcome 8 characters`],
             maxLength: [15, 'Phone must be 15 numbers'],
         },
         role: {
             type: String,
-            required: [true, 'Role is required'],
             uppercase: true,
-            enum: ['ADMIN', 'CLIENT']
+            enum: ['ADMIN', 'USER'],
+            default: "USER",
         }
     }
 )
-
 userSchema.methods.toJSON = function(){
     const { __v, password, ...user} = this.toObject() 
     return user
